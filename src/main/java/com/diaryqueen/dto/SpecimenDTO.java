@@ -1,4 +1,4 @@
-package com.plantplaces.dto;
+package com.diaryqueen.dto;
 
 public class SpecimenDTO {
 

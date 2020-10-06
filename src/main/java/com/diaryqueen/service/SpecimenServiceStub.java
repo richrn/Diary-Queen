@@ -1,8 +1,8 @@
-package com.plantplaces.service;
+package com.diaryqueen.service;
 
 import org.springframework.stereotype.Component;
 
-import com.plantplaces.dto.SpecimenDTO;
+import com.diaryqueen.dto.SpecimenDTO;
 
 @Component
 public class SpecimenServiceStub implements ISpecimenService {

@@ -1,4 +1,4 @@
-package com.plantplaces;
+package com.diaryqueen;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.plantplaces.dto.SpecimenDTO;
-import com.plantplaces.service.ISpecimenService;
+import com.diaryqueen.dto.SpecimenDTO;
+import com.diaryqueen.service.ISpecimenService;
 
 /**
  * @author 97kem
  *
  */
 @Controller
-public class PlantPlacesController {
+public class DiaryQueenController {
 	
 	@Autowired
 	private ISpecimenService specimenServiceStub;

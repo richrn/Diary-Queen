@@ -1,6 +1,6 @@
-package com.plantplaces.service;
+package com.diaryqueen.service;
 
-import com.plantplaces.dto.SpecimenDTO;
+import com.diaryqueen.dto.SpecimenDTO;
 
 
 /**
