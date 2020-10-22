@@ -1,15 +1,12 @@
 package com.diaryqueen;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.diaryqueen.dto.SpecimenDTO;
-import com.diaryqueen.service.ISpecimenService;
+import com.diaryqueen.dto.DiaryEntry;
 
 /**
  * @author 97kem
@@ -18,55 +15,29 @@ import com.diaryqueen.service.ISpecimenService;
 @Controller
 public class DiaryQueenController {
 	
-	@Autowired
-	private ISpecimenService specimenServiceStub;
-	
-	@RequestMapping(value="/start", method=RequestMethod.GET)
-	public String read(Model model) {
-		SpecimenDTO specimenDTO = specimenServiceStub.fetchById(43);
-		model.addAttribute("specimenDTO", specimenDTO);
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String index(Model model) {
+		DiaryEntry diaryEntry1 = new DiaryEntry(1, "10/21/2020", "Wednesday Entry", "Today I was doing something and then I started doing something else... While I was doing that something else, I just realized that I was indeed doing nothing. This realization brought me to my feet just to yawn and stretch before going back to what I was doing earlier.");
+		DiaryEntry diaryEntry2 = new DiaryEntry(2, "10/22/2020", "What a phenomenal day!", "Today I was doing something and then I started doing something else... While I was doing that something else, I just realized that I was indeed doing nothing. This realization brought me to my feet just to yawn and stretch before going back to what I was doing earlier.");
 		
-		return "start";
-	}
-	@RequestMapping(value="/start", method=RequestMethod.GET, params = {"loyalty=blue"})
-	public String readBlue() {
+		model.addAttribute("diaryEntry1", diaryEntry1);
+		model.addAttribute("diaryEntry2", diaryEntry2);
 		
-		return "start";
-	}
-	@RequestMapping(value="/start", method=RequestMethod.GET, params = {"loyalty=silver"})
-	public ModelAndView readSilver() {
-		SpecimenDTO specimenDTO = specimenServiceStub.fetchById(43);
-		specimenDTO.setSpecimenId(90);
-		
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("start");
-		modelAndView.addObject("specimenDTO", specimenDTO);
-		
-		return modelAndView;
-	}
-	@RequestMapping(value="/start", method=RequestMethod.GET, headers = {"content-type=text/json"})
-	public String readJSON() {
-		
-		return "start";
+		return "index";
 	}
 	
+//	@RequestMapping(value="/", method=RequestMethod.GET, params = {"loyalty=blue"})
+//	public String readBlue() {
+//		return "start";
+//	}
+//	@RequestMapping(value="/start", method=RequestMethod.GET, headers = {"content-type=text/json"})
+//	public String readJSON() {
+//		return "start";
+//	}
 	
-	@PostMapping("/start")
-	public String create() {
-		
-		return "start";
-	}
 	
-	
-	
-	
-	/**
-	 * Handle the / endpoint
-	 * @return
-	 */
-	@RequestMapping("/")
-	public String index() {
-		
-		return "start";
-	}
+//	@PostMapping("/start")
+//	public String create() {
+//		return "start";
+//	}
 }
