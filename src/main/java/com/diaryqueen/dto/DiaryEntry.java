@@ -3,7 +3,7 @@ package com.diaryqueen.dto;
 public class DiaryEntry {
 
 	private int entryId;
-	private String date;				// This could be improved with a Date object
+	private long timestamp;				// This could be improved with a Date object
 	private String header;
 	private String content;
 	
@@ -15,19 +15,19 @@ public class DiaryEntry {
 		this.entryId = entryId;
 	}
 
-	public DiaryEntry(int entryId, String date, String header, String content) {
+	public DiaryEntry(int entryId, long timestamp, String header, String content) {
 		this.entryId = entryId;
-		this.date = date;
+		this.timestamp = timestamp;
 		this.header = header;
 		this.content = content;
 	}
 
-	public String getDate() {
-		return date;
+	public long getTimestamp() {
+		return timestamp;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
 	}
 
 	public String getHeader() {
@@ -49,7 +49,7 @@ public class DiaryEntry {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "The diary entry with ID --> " + entryId + " Date --> " + date + " is:\n\n" + header + "\n\n" + content;
+		return "The diary entry with ID --> " + entryId + " Date --> " + timestamp + " is:\n\n" + header + "\n\n" + content;
 	}
 	
 	

@@ -30,11 +30,11 @@
 		</nav>
 	</div>
 	<div class="container">
-		<div class="card" style="width: 18rem;">
+		<div th:each="diaryEntry : ${diaryEntries}" class="card" style="width: 18rem;">
 		  <div class="card-body">
-		    <h5 class="card-title" th:text="${diaryEntry1.getHeader()}"></h5>
-		    <h6 class="card-subtitle mb-2 text-muted" th:text="${diaryEntry1.getDate()}"></h6>
-		    <p class="card-text" th:text="${diaryEntry1.getContent()}"></p>
+		    <h5 class="card-title" th:text="${diaryEntry.getHeader()}"></h5>
+		    <h6 class="card-subtitle mb-2 text-muted" th:text="${#dates.format(diaryEntry.getTimestamp(), 'MM-dd-yyyy')}"></h6>
+		    <p class="card-text" th:text="${diaryEntry.getContent()}"></p>
 		    <a href="#" class="card-link">Edit</a>
 		    <a href="#" class="card-link">Delete</a>
 		  </div>
