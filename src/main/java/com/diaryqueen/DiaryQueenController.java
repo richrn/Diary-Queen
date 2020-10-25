@@ -1,5 +1,7 @@
 package com.diaryqueen;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,30 +16,25 @@ import com.diaryqueen.dto.DiaryEntry;
  */
 @Controller
 public class DiaryQueenController {
-	
-	@RequestMapping(value="/", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
-		DiaryEntry diaryEntry1 = new DiaryEntry(1, "10/21/2020", "Wednesday Entry", "Today I was doing something and then I started doing something else... While I was doing that something else, I just realized that I was indeed doing nothing. This realization brought me to my feet just to yawn and stretch before going back to what I was doing earlier.");
-		DiaryEntry diaryEntry2 = new DiaryEntry(2, "10/22/2020", "What a phenomenal day!", "Today I was doing something and then I started doing something else... While I was doing that something else, I just realized that I was indeed doing nothing. This realization brought me to my feet just to yawn and stretch before going back to what I was doing earlier.");
+
+		ArrayList<DiaryEntry> entries = new ArrayList<>();
 		
-		model.addAttribute("diaryEntry1", diaryEntry1);
-		model.addAttribute("diaryEntry2", diaryEntry2);
+		entries.add(new DiaryEntry(1, "10/21/2020", "Wednesday Entry", 
+				"Today I was doing something and then I started doing something else... "
+				+ "While I was doing that something else, I just realized that I was indeed doing nothing. "
+				+ "This realization brought me to my feet just to yawn and stretch before going back to what I was doing earlier."));
 		
+		entries.add(new DiaryEntry(2, "10/22/2020", "What a phenomenal day!", 
+				"Today I was doing something and then I started doing something else... "
+				+ "While I was doing that something else, I just realized that I was indeed doing nothing. "
+				+ "This realization brought me to my feet just to yawn and stretch before going back to what I was doing earlier."));
+		
+
+		model.addAttribute("entries", entries);
+
 		return "index";
 	}
-	
-//	@RequestMapping(value="/", method=RequestMethod.GET, params = {"loyalty=blue"})
-//	public String readBlue() {
-//		return "start";
-//	}
-//	@RequestMapping(value="/start", method=RequestMethod.GET, headers = {"content-type=text/json"})
-//	public String readJSON() {
-//		return "start";
-//	}
-	
-	
-//	@PostMapping("/start")
-//	public String create() {
-//		return "start";
-//	}
 }
