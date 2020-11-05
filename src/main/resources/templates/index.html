@@ -13,29 +13,29 @@
 <body>
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		  <a class="navbar-brand" href="#">Diary Queen</a>
+		  <a class="navbar-brand" href="/">Diary Queen</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
 		  <div class="collapse navbar-collapse" id="navbarNav">
 		    <ul class="navbar-nav">
 		      <li class="nav-item active">
-		        <a class="nav-link" href="#">My Diaries<span class="sr-only">(current)</span></a>
+		        <a class="nav-link" href="/">My Diaries<span class="sr-only">(current)</span></a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="#">Add Entry</a>
+		        <a class="nav-link" href="add">Add Entry</a>
 		      </li>
 		    </ul>
 		  </div>
 		</nav>
 	</div>
 	<div class="container">
-		<div th:each="DiaryEntry : ${entries}" class="card" style="width: 18rem;">
+		<div th:each="entry : ${entries}" class="card" style="width: 18rem;">
 		  <div class="card-body">
-		    <h5 class="card-title" th:text="${DiaryEntry.getHeader()}"></h5>
-		    <h6 class="card-subtitle mb-2 text-muted" th:text="${DiaryEntry.getDate()}"></h6>
-		    <p class="card-text" th:text="${DiaryEntry.getContent()}"></p>
-		    <a href="#" class="card-link">Edit</a>
+		    <h5 class="card-title" th:text="${entry.getHeader()}"></h5>
+		    <h6 class="card-subtitle mb-2 text-muted" th:text="${entry.getDate()}"></h6>
+		    <p class="card-text" th:text="${entry.getContent()}"></p>
+		    <a th:href="@{edit(id=${entry.getEntryId()}, header=${entry.getHeader()}, content=${entry.getContent()})}" class="card-link">Edit</a>
 		    <a href="#" class="card-link">Delete</a>
 		  </div>
 		</div>
