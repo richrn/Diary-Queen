@@ -28,20 +28,31 @@ import com.diaryqueen.dto.DiaryEntry;
 public class DiaryQueenController {
 	
 	
-	@WebServlet("/add")
+	@WebServlet("/add") //this /add might be wrong idk
 	public class ProcessText extends HttpServlet {
 	 
-	    protected void doPost(HttpServletRequest request,
-	            HttpServletResponse response) throws ServletException, IOException {
+		@Override
+	    protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+			
+			 ProcessText processText = new ProcessText();
+
+		        if (request.getParameter("button1") != null) {
+		        	String addTextBox = request.getParameter("addTextBox") ;
+			        String header = request.getParameter("header");
+			        
+			        System.out.println("addTextBox" + addTextBox);
+			        System.out.println("header: " + header);
+		            
+		            	// something? push to array here
+		            }
 	         
-	        // read form fields
-	    	String addTextBox = request.getParameter("addTextBox") ;
-	        String header = request.getParameter("header");
+	        // read input fields
+	    	
 	         
-	        System.out.println("addTextBox" + addTextBox);
-	        System.out.println("header: " + header);
+	       
 	        
-	        // Return Response 
+	        // Return Response (not in yet)
+	        
 	    }
 	    }
 	
