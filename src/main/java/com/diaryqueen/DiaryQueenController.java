@@ -36,7 +36,7 @@ public class DiaryQueenController {
 			
 			 ProcessText processText = new ProcessText();
 
-		        if (request.getParameter("button1") != null) {
+		        if (request.getParameter("addButton") != null) {
 		        	String addTextBox = request.getParameter("addTextBox") ;
 			        String header = request.getParameter("header");
 			        
