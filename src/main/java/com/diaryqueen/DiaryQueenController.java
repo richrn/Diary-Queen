@@ -1,7 +1,6 @@
 package com.diaryqueen;
 
 import java.io.IOException;
-import java.io.PrintWriter;
  
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,12 +12,10 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.diaryqueen.dto.DiaryEntry;
+import com.diaryqueen.dto.DiaryEntryRequest;
 
 /**
  * @author 97kem
@@ -26,8 +23,7 @@ import com.diaryqueen.dto.DiaryEntry;
  */
 @Controller
 public class DiaryQueenController {
-	
-	
+
 	@WebServlet("/add") //this /add might be wrong idk
 	public class ProcessText extends HttpServlet {
 	 
@@ -54,16 +50,11 @@ public class DiaryQueenController {
 	        // Return Response (not in yet)
 	        
 	    }
-	    }
+	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index(Model model) {
-
-		ArrayList<DiaryEntry> entries = new ArrayList<>();
-		
-		
-		
-		
+	private static ArrayList<DiaryEntry> entries = new ArrayList<>();
+	
+	public DiaryQueenController() {
 		entries.add(new DiaryEntry(1, java.time.LocalDate.now(),  "Wednesday Entry", 
 				"Today I was doing something and then I started doing something else... "
 				+ "While I was doing that something else, I just realized that I was indeed doing nothing. "
@@ -73,23 +64,25 @@ public class DiaryQueenController {
 				"Today I was doing something and then I started doing something else... "
 				+ "While I was doing that something else, I just realized that I was indeed doing nothing. "
 				+ "This realization brought me to my feet just to yawn and stretch before going back to what I was doing earlier."));
-		
-		
-
+	}
+	
+	@PostMapping("/add")
+	public void addDiaryEntry(DiaryEntryRequest request) {
+		entries.add(new DiaryEntry(3, java.time.LocalDate.now(),  request.getHeader(), request.getContent()));
+	}
+	
+	@GetMapping("/")
+	public String index(Model model) {
 		model.addAttribute("entries", entries);
-
 		return "index";
 	}
-
-	       
 	
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	@GetMapping("/add")
 	public String add(Model model) {
-		
 		return "add";
 	}
 	
-	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	@GetMapping("/edit")
 	public String edit(Model model) {
 		return "edit";
 	}
