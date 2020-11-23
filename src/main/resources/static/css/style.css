@@ -1,0 +1,74 @@
+/* navbar */
+nav{
+	font-family: Monaco, monaspace;
+	background-color:#EE6C4D;
+	font-weight: bold;
+	color: #293241;
+}
+
+.navbar{
+	height:120px;
+	font-size:20px;
+}
+
+body{
+	background-color: #374358;
+	font-family: Lucida, serif;
+	color: #293241;
+	}
+	
+.navbar-brand{
+	font-size:30px;
+	font-weight:bold;
+	color:#374358;
+}
+
+/* Index */
+.card{
+	background-color: #E0FBFC;
+}
+
+.card-body{
+	overflow:scroll;
+	max-height:200px;
+}
+
+.buttons{
+	color: #EE6C4D;
+}
+
+.edit{
+	color:#3D5A80;
+	font-weight:bold;
+}
+
+.delete{
+	color:#EE6C4D;
+	font-weight:bold;
+}
+
+/* addnew */
+/* label{
+	color: #E0FBFC;
+	font-size: 20px;
+} */
+
+label.col-sm-2.col-form-label {
+    font-size: 20px;
+    color: #E0FBFC;
+}
+
+.save{
+	background-color: #E0FBFC;
+	color: #3D5A80;
+}
+
+#textContent{
+	height: 200px;
+}
+
+#charNum{
+	color:#E0FBFC
+}
+
+
