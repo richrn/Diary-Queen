@@ -13,10 +13,9 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.diaryqueen.dto.DiaryEntry;
 
@@ -27,6 +26,7 @@ import com.diaryqueen.dto.DiaryEntry;
 @Controller
 public class DiaryQueenController {
 	
+	ArrayList<DiaryEntry> entries = new ArrayList<>();
 	
 	@WebServlet("/add") //this /add might be wrong idk
 	public class ProcessText extends HttpServlet {
@@ -56,14 +56,9 @@ public class DiaryQueenController {
 	    }
 	    }
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@GetMapping("/")
 	public String index(Model model) {
 
-		ArrayList<DiaryEntry> entries = new ArrayList<>();
-		
-		
-		
-		
 		entries.add(new DiaryEntry(1, java.time.LocalDate.now(),  "Wednesday Entry", 
 				"Today I was doing something and then I started doing something else... "
 				+ "While I was doing that something else, I just realized that I was indeed doing nothing. "
@@ -83,14 +78,16 @@ public class DiaryQueenController {
 
 	       
 	
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	@GetMapping("/add")
 	public String add(Model model) {
 		
 		return "add";
 	}
 	
-	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	@GetMapping( "/edit")
 	public String edit(Model model) {
 		return "edit";
 	}
+	
+	
 }
