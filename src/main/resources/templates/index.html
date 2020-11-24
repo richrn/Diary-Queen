@@ -33,23 +33,29 @@
 		  </div>
 		</nav>
 		<br>
-		<div th:each="entry : ${entries}" class="card">
-		  <div class="card-body">
-		  <!-- title, body and header -->
-			  <div class="content">
-			  	<h5 class="card-title" th:text="${entry.getHeader()}"></h5>
-		    	<h6 class="card-subtitle mb-2 text-muted" th:text="${entry.getDate()}"></h6>
-		    	<p class="card-text" th:text="${entry.getContent()}"></p>
+		<div class="card-deck">
+		
+			<div th:each="entry : ${entries}" class="card">
+			  <div class="card-body">
+			  <!-- title, body and header -->
+				  <div class="content">
+				  	<h5 class="card-title" th:text="${entry.getHeader()}"></h5>
+			    	<h6 class="card-subtitle mb-2 text-muted" th:text="${entry.getDate()}"></h6>
+			    	<p class="card-text" th:text="${entry.getContent()}"></p>
+				  </div>
+			    <!-- edit and delete button -->
+			   	  <div class="buttons">
+			   		<a th:href="@{edit(id=${entry.getEntryId()}, header=${entry.getHeader()}, content=${entry.getContent()})}" class="card-link edit">Edit</a>
+			    	<a href="#" class="card-link delete">Delete</a>
+			    	<br>
+			   	 </div>
 			  </div>
-		    <!-- edit and delete button -->
-		   	  <div class="buttons">
-		   		<a th:href="@{edit(id=${entry.getEntryId()}, header=${entry.getHeader()}, content=${entry.getContent()})}" class="card-link edit">Edit</a>
-		    	<a href="#" class="card-link delete">Delete</a>
-		    	<br>
-		   	 </div>
-		  </div>
+			</div>
+		
 		</div>
+		
 	</div>
 </body>
 
 </html>
+

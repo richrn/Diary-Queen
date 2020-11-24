@@ -30,7 +30,7 @@ body{
 
 .card-body{
 	overflow:scroll;
-	max-height:200px;
+	height: 300px;
 }
 
 .buttons{
