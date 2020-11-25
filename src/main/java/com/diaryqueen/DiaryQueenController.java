@@ -23,34 +23,6 @@ import com.diaryqueen.dto.DiaryEntryRequest;
  */
 @Controller
 public class DiaryQueenController {
-
-	@WebServlet("/add") //this /add might be wrong idk
-	public class ProcessText extends HttpServlet {
-	 
-		@Override
-	    protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-			
-			 ProcessText processText = new ProcessText();
-
-		        if (request.getParameter("addButton") != null) {
-		        	String addTextBox = request.getParameter("addTextBox") ;
-			        String header = request.getParameter("header");
-			        
-			        System.out.println("addTextBox" + addTextBox);
-			        System.out.println("header: " + header);
-		            
-		            	// something? push to array here
-		            }
-	         
-	        // read input fields
-	    	
-	         
-	       
-	        
-	        // Return Response (not in yet)
-	        
-	    }
-	}
 	
 	private static ArrayList<DiaryEntry> entries = new ArrayList<>();
 	
