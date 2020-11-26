@@ -37,21 +37,9 @@
 		</nav>
 	</div>
 	<div class="container">
-		<form method="post" action="/add">
-			<div class="form-group">
-				<label  for="inputHeader">Header</label>
-				 <input name="header"type="text"
-					class="form-control" id="inputHeader"
-					aria-describedby="diaryHeader">
-			</div>
-			<div class="form-group">
-				<label  for="textContent">Content</label>
-				<textarea name="content" class="form-control" id="textContent"
-					rows="3"></textarea>
-			</div> -->
 			
 			
-			<form class="addNewForm">
+			<form class="addNewForm" action="/add" method="post" id="addForm">
 			
 				<div class="form-group row">
 			  
@@ -59,7 +47,7 @@
 			    
 			    	<div class="col-sm-4">
 			    
-			    		<input type="text" class="form-control" id="inputDate">
+			    		<input type="text" class="form-control" id="inputDate" name="date">
 			      
 			    	</div>
 			    
@@ -71,7 +59,7 @@
 			    
 			    	<div class="col-sm-10">
 			    
-			    		<input type="text" class="form-control" id="inputTitle">
+			    		<input type="text" class="form-control" id="inputTitle" name="header">
 			      
 			    	</div>
 			    
@@ -83,7 +71,7 @@
 			    
 			    	<div class="col-sm-10">
 			    
-			    		<textarea name="addTextBox" class="form-control content" id="textContent" onkeyup="countChars(this);"></textarea>
+			    		<textarea class="form-control content" id="textContent" name="content" onkeyup="countChars(this);"></textarea>
 			    		
 			    		<p id="charNum">0 characters</p>
 			      
@@ -91,17 +79,17 @@
 			    
 				</div>
 				
-				<button type="submit" name="addButton" class="btn btn-primary save btn-lg">Add Diary Entry</button>
+				<button type="submit" name="addButton" class="btn btn-primary save btn-lg" id="submitButton">Add Diary Entry</button>
 			  
 			</form>
 			
 	</div>
 </body>
 
-</html>
-
-<script>
+<script type="text/javascript">
 function countChars(obj){
     document.getElementById("charNum").innerHTML = obj.value.length+' characters';
 }
 </script>
+
+</html>

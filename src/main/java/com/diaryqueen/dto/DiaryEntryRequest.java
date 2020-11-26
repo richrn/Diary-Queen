@@ -1,13 +1,16 @@
 package com.diaryqueen.dto;
 
+
 public class DiaryEntryRequest {
 	
 	private String header;
 	private String content;
+	private String date;
 	
-	public DiaryEntryRequest(String header, String content) {
+	public DiaryEntryRequest(String header, String content, String date) {
 		this.header = header;
 		this.content = content;
+		this.date = date;
 	}
 
 	public String getHeader() {
@@ -16,6 +19,14 @@ public class DiaryEntryRequest {
 
 	public void setHeader(String header) {
 		this.header = header;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getContent() {
