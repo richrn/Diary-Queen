@@ -1,11 +1,9 @@
 package com.diaryqueen.dto;
 
-import java.time.LocalDate;
-
 public class DiaryEntry {
 
 	private int entryId;
-	private LocalDate date;				// This could be improved with a Date object
+	private String date;				// This could be improved with a Date object
 	private String header;
 	private String content;
 	
@@ -17,18 +15,18 @@ public class DiaryEntry {
 		this.entryId = entryId;
 	}
 
-	public DiaryEntry(int entryId, LocalDate date, String header, String content) {
+	public DiaryEntry(int entryId, String date, String header, String content) {
 		this.entryId = entryId;
 		this.date = date;
 		this.header = header;
 		this.content = content;
 	}
 
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
