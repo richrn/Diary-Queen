@@ -9,13 +9,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.diaryqueen.dto.DiaryEntry;
 import com.diaryqueen.dto.DiaryEntryRequest;
+
 
 /**
  * @author 97kem
@@ -66,8 +74,41 @@ public class DiaryQueenController {
 		return "add";
 	}
 	
-	@GetMapping("/edit")
-	public String edit(Model model) {
-		return "edit";
+	@DeleteMapping("/delete")
+	public String delete(@RequestParam("EntryId")int entryId) {
+	// remove faculty
+		entries.remove("DiaryEntry");
+		//Return to the faculty's directory
+		return "redirect:/index";
 	}
+	
+	
+	
+	
+	//alternate version of edit from soit
+	/*@GetMapping("/viewAddForm")
+	public String viewAddForm(Model model) {
+	
+		 //Model attribute for data binding
+		Entries = new Model();
+		
+		model.addAttribute("faculty", theFaculty);
+		
+		return "redirect:/index";
+		}
+	// Non working edit feature logic should work - cant get it working all the way
+	/*@PutMapping("/edit")
+	public void updateModel(@RequestBody Model model, @PathVariable String id) {
+		entries.updateArray(id,model);
+	}
+	
+	public void updateArray(String id, Model model) {
+		for (int i =0; i< entries.size(); i++) {
+			Model m = entries.get(i);
+		if(m.getId().equals(id)) {
+			entries.set(i, model);
+			return
+		}
+		}
+	}*/
 }

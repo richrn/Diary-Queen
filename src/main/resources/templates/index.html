@@ -46,7 +46,7 @@
 			    <!-- edit and delete button -->
 			   	  <div class="buttons">
 			   		<a th:href="@{edit(id=${entry.getEntryId()}, header=${entry.getHeader()}, content=${entry.getContent()})}" class="card-link edit">Edit</a>
-			    	<a href="#" class="card-link delete">Delete</a>
+			    	<a id="deleteButton" href="#" class="card-link delete">Delete</a>
 			    	<br>
 			   	 </div>
 			  </div>
