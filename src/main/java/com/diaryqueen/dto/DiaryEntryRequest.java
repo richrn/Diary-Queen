@@ -3,6 +3,7 @@ package com.diaryqueen.dto;
 
 public class DiaryEntryRequest {
 	
+	private int entryId;
 	private String header;
 	private String content;
 	private String date;
@@ -35,6 +36,14 @@ public class DiaryEntryRequest {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public int getEntryId() {
+		return entryId;
+	}
+
+	public void setEntryId(int entryId) {
+		this.entryId = entryId;
 	}
 
 }
