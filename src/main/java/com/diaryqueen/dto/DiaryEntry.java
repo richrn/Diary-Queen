@@ -7,6 +7,8 @@ public class DiaryEntry {
 	private String header;
 	private String content;
 	
+	private static int entryIdIncrement = 0;
+	
 	public int getEntryId() {
 		return entryId;
 	}
@@ -15,11 +17,13 @@ public class DiaryEntry {
 		this.entryId = entryId;
 	}
 
-	public DiaryEntry(int entryId, String date, String header, String content) {
-		this.entryId = entryId;
+	public DiaryEntry(String date, String header, String content) {
+		this.entryId = entryIdIncrement;
 		this.date = date;
 		this.header = header;
 		this.content = content;
+		
+		entryIdIncrement++;
 	}
 
 	public String getDate() {
