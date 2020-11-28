@@ -35,17 +35,17 @@ public class DiaryQueenController {
 	private static ArrayList<DiaryEntry> entries = new ArrayList<>();
 	
 	public DiaryQueenController() {
-		entries.add(new DiaryEntry(1, java.time.LocalDate.now().toString(),  "Wednesday Entry", 
+		entries.add(new DiaryEntry(java.time.LocalDate.now().toString(),  "Wednesday Entry", 
 				"Today I was doing something and then I started doing something else... "
 				+ "While I was doing that something else, I just realized that I was indeed doing nothing. "
 				+ "This realization brought me to my feet just to yawn and stretch before going back to what I was doing earlier."));
 		
-		entries.add(new DiaryEntry(2, java.time.LocalDate.now().toString(), "What a phenomenal day!", 
+		entries.add(new DiaryEntry(java.time.LocalDate.now().toString(), "What a phenomenal day!", 
 				"Today I was doing something and then I started doing something else... "
 				+ "While I was doing that something else, I just realized that I was indeed doing nothing. "
 				+ "This realization brought me to my feet just to yawn and stretch before going back to what I was doing earlier."));
 		
-		entries.add(new DiaryEntry(2, java.time.LocalDate.now().toString(), "What a phenomenal day!", 
+		entries.add(new DiaryEntry(java.time.LocalDate.now().toString(), "What a phenomenal day!", 
 				"Today I was doing something and then I started doing something else... "
 				+ "While I was doing that something else, I just realized that I was indeed doing nothing. "
 				+ "This realization brought me to my feet just to yawn and stretch before going back to what "
@@ -58,7 +58,7 @@ public class DiaryQueenController {
 	
 	@PostMapping("/add")
 	public String addDiaryEntry(DiaryEntryRequest request) {
-		entries.add(new DiaryEntry(3, request.getDate(),  request.getHeader(), request.getContent()));
+		entries.add(new DiaryEntry(request.getDate(),  request.getHeader(), request.getContent()));
 		
 		return "redirect:/";
 	}
@@ -74,12 +74,15 @@ public class DiaryQueenController {
 		return "add";
 	}
 	
-	@DeleteMapping("/delete")
-	public String delete(@RequestParam("EntryId")int entryId) {
-	// remove faculty
-		entries.remove("DiaryEntry");
-		//Return to the faculty's directory
-		return "redirect:/index";
+	@GetMapping("/delete")
+	public String delete(@RequestParam("id")int id) {
+		for (int i = 0; i < entries.size() ; i++) {
+			if (entries.get(i).getEntryId() == id) {
+				entries.remove(i);
+			}
+		}
+
+		return "redirect:/";
 	}
 	
 	
