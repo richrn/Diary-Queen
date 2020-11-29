@@ -1,13 +1,13 @@
 package com.diaryqueen.dto;
 
-import java.time.LocalDate;
-
 public class DiaryEntry {
 
 	private int entryId;
-	private LocalDate date;				// This could be improved with a Date object
+	private String date;				// This could be improved with a Date object
 	private String header;
 	private String content;
+	
+	private static int entryIdIncrement = 0;
 	
 	public int getEntryId() {
 		return entryId;
@@ -17,18 +17,20 @@ public class DiaryEntry {
 		this.entryId = entryId;
 	}
 
-	public DiaryEntry(int entryId, LocalDate date, String header, String content) {
-		this.entryId = entryId;
+	public DiaryEntry(String date, String header, String content) {
+		this.entryId = entryIdIncrement;
 		this.date = date;
 		this.header = header;
 		this.content = content;
+		
+		entryIdIncrement++;
 	}
 
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
